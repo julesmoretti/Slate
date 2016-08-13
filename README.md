@@ -9,12 +9,8 @@ Using [Slate.js](https://github.com/jigish/slate/)
 cd ~
 mkdir Git && cd Git
 git clone git@github.com:julesmoretti/slate.git Slate
-touch .slate.js
+echo "var success = slate.source("~/Git/Slate/slate.js");" >> ~/.slate.js
 ```
-
-Add to the `.slate.js` file the following:
-
-`var success = slate.source("~/Git/Slate/slate.js");`
 
 And then install and run:
 `cd /Applications && curl http://www.ninjamonkeysoftware.com/slate/versions/slate-latest.tar.gz | tar -xz`

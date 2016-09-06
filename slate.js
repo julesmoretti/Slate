@@ -52,10 +52,18 @@ var tboltRightTop = tboltRight.dup({ "height" : "screenSizeY/2" });
 var tboltRightBot = tboltRightTop.dup({ "y" : "screenOriginY+screenSizeY/2" });
 
 var halfLeft = tboltFull.dup({ "width" : "screenSizeX/2" });
+var horizontalQuarter = tboltFull.dup({ "width" : "screenSizeX/4" });
+var horizontalThreeQuarter = tboltFull.dup({ "width" : "screenSizeX/4*3" });
+
 var quarterTopLeft = halfLeft.dup({ "height" : "screenSizeY/2" });
 var quarterTopRight = quarterTopLeft.dup({ "x" : "screenOriginX+(screenSizeX*1/2)" });
 var quarterBottomLeft = quarterTopLeft.dup({ "y" : "screenOriginY+screenSizeY/2" });
 var quarterBottomRight = quarterTopRight.dup({ "y" : "screenOriginY+screenSizeY/2" });
+
+var quarterHorizontalLeft = horizontalQuarter.dup({ "height" : "screenSizeY/2", "x" : "screenOriginX" });
+var quarterHorizontalRight = horizontalThreeQuarter.dup({ "height" : "screenSizeY/2", "x" : "screenOriginX+(screenSizeX*1/4)" });
+var quarterHorizontalBotLeft = quarterHorizontalLeft.dup({ "y" : "screenOriginY+screenSizeY/2" });
+var quarterHorizontalBotRight = quarterHorizontalRight.dup({ "y" : "screenOriginY+screenSizeY/2" });
 
 // Batch bind everything. Less typing.
 S.bnda({
@@ -76,6 +84,11 @@ S.bnda({
 	"=:ctrl;alt;cmd" : quarterTopRight,
 	"[:ctrl;alt;cmd" : quarterBottomLeft,
 	"]:ctrl;alt;cmd" : quarterBottomRight,
+
+	"9:ctrl;alt;cmd" : quarterHorizontalLeft,
+	"0:ctrl;alt;cmd" : quarterHorizontalRight,
+	"o:ctrl;alt;cmd" : quarterHorizontalBotLeft,
+	"p:ctrl;alt;cmd" : quarterHorizontalBotRight,
 
 	"right:ctrl;alt;cmd" : S.op("push", { "direction" : "right", "style" : "bar-resize:screenSizeX/2" }),
 	"left:ctrl;alt;cmd" : S.op("push", { "direction" : "left", "style" : "bar-resize:screenSizeX/2" }),

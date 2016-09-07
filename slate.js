@@ -52,18 +52,37 @@ var tboltRightTop = tboltRight.dup({ "height" : "screenSizeY/2" });
 var tboltRightBot = tboltRightTop.dup({ "y" : "screenOriginY+screenSizeY/2" });
 
 var halfLeft = tboltFull.dup({ "width" : "screenSizeX/2" });
+
+var horizontalThird = tboltFull.dup({ "width" : "screenSizeX/3" });
+var horizontalTwoThird = tboltFull.dup({ "width" : "screenSizeX/3*2" });
+
 var horizontalQuarter = tboltFull.dup({ "width" : "screenSizeX/4" });
 var horizontalThreeQuarter = tboltFull.dup({ "width" : "screenSizeX/4*3" });
+
+var thirdHorizontalLeft = horizontalThird.dup({ "x" : "screenOriginX" });
+var thirdHorizontalRight = horizontalThreeQuarter.dup({ "x" : "screenOriginX+(screenSizeX*1/3)" });
+
+var thirdHorizontalTopLeft = horizontalThird.dup({ "height" : "screenSizeY/2", "x" : "screenOriginX" });
+var thirdHorizontalTopRight = horizontalThreeQuarter.dup({ "height" : "screenSizeY/2", "x" : "screenOriginX+(screenSizeX*1/3)" });
+var thirdHorizontalBotLeft = thirdHorizontalTopLeft.dup({ "y" : "screenOriginY+screenSizeY/2" });
+var thirdHorizontalBotRight = thirdHorizontalTopRight.dup({ "y" : "screenOriginY+screenSizeY/2" });
+
+
+var quarterHorizontalLeft = horizontalQuarter.dup({ "x" : "screenOriginX" });
+var quarterHorizontalRight = horizontalThreeQuarter.dup({ "x" : "screenOriginX+(screenSizeX*1/4)" });
+
+var quarterHorizontalTopLeft = horizontalQuarter.dup({ "height" : "screenSizeY/2", "x" : "screenOriginX" });
+var quarterHorizontalTopRight = horizontalThreeQuarter.dup({ "height" : "screenSizeY/2", "x" : "screenOriginX+(screenSizeX*1/4)" });
+var quarterHorizontalBotLeft = quarterHorizontalTopLeft.dup({ "y" : "screenOriginY+screenSizeY/2" });
+var quarterHorizontalBotRight = quarterHorizontalTopRight.dup({ "y" : "screenOriginY+screenSizeY/2" });
+
+var quarterLeft = halfLeft.dup({});
+var quarterRight = quarterLeft.dup({ "x" : "screenOriginX+(screenSizeX*1/2)" });
 
 var quarterTopLeft = halfLeft.dup({ "height" : "screenSizeY/2" });
 var quarterTopRight = quarterTopLeft.dup({ "x" : "screenOriginX+(screenSizeX*1/2)" });
 var quarterBottomLeft = quarterTopLeft.dup({ "y" : "screenOriginY+screenSizeY/2" });
 var quarterBottomRight = quarterTopRight.dup({ "y" : "screenOriginY+screenSizeY/2" });
-
-var quarterHorizontalLeft = horizontalQuarter.dup({ "height" : "screenSizeY/2", "x" : "screenOriginX" });
-var quarterHorizontalRight = horizontalThreeQuarter.dup({ "height" : "screenSizeY/2", "x" : "screenOriginX+(screenSizeX*1/4)" });
-var quarterHorizontalBotLeft = quarterHorizontalLeft.dup({ "y" : "screenOriginY+screenSizeY/2" });
-var quarterHorizontalBotRight = quarterHorizontalRight.dup({ "y" : "screenOriginY+screenSizeY/2" });
 
 // Batch bind everything. Less typing.
 S.bnda({
@@ -84,11 +103,22 @@ S.bnda({
 	"=:ctrl;alt;cmd" : quarterTopRight,
 	"[:ctrl;alt;cmd" : quarterBottomLeft,
 	"]:ctrl;alt;cmd" : quarterBottomRight,
+	".:ctrl;alt;cmd" : quarterLeft,
+	"/:ctrl;alt;cmd" : quarterRight,
 
-	"9:ctrl;alt;cmd" : quarterHorizontalLeft,
-	"0:ctrl;alt;cmd" : quarterHorizontalRight,
-	"o:ctrl;alt;cmd" : quarterHorizontalBotLeft,
-	"p:ctrl;alt;cmd" : quarterHorizontalBotRight,
+	"9:ctrl;alt;cmd" : thirdHorizontalTopLeft,
+	"0:ctrl;alt;cmd" : thirdHorizontalTopRight,
+	"o:ctrl;alt;cmd" : thirdHorizontalBotLeft,
+	"p:ctrl;alt;cmd" : thirdHorizontalBotRight,
+	"m:ctrl;alt;cmd" : thirdHorizontalLeft,
+	",:ctrl;alt;cmd" : thirdHorizontalRight,
+
+	"7:ctrl;alt;cmd" : quarterHorizontalTopLeft,
+	"8:ctrl;alt;cmd" : quarterHorizontalTopRight,
+	"u:ctrl;alt;cmd" : quarterHorizontalBotLeft,
+	"i:ctrl;alt;cmd" : quarterHorizontalBotRight,
+	"b:ctrl;alt;cmd" : quarterHorizontalLeft,
+	"n:ctrl;alt;cmd" : quarterHorizontalRight,
 
 	"right:ctrl;alt;cmd" : S.op("push", { "direction" : "right", "style" : "bar-resize:screenSizeX/2" }),
 	"left:ctrl;alt;cmd" : S.op("push", { "direction" : "left", "style" : "bar-resize:screenSizeX/2" }),

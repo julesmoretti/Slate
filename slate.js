@@ -60,10 +60,10 @@ var horizontalQuarter = tboltFull.dup({ "width" : "screenSizeX/4" });
 var horizontalThreeQuarter = tboltFull.dup({ "width" : "screenSizeX/4*3" });
 
 var thirdHorizontalLeft = horizontalThird.dup({ "x" : "screenOriginX" });
-var thirdHorizontalRight = horizontalThreeQuarter.dup({ "x" : "screenOriginX+(screenSizeX*1/3)" });
+var thirdHorizontalRight = horizontalTwoThird.dup({ "x" : "screenOriginX+(screenSizeX*1/3)" });
 
 var thirdHorizontalTopLeft = horizontalThird.dup({ "height" : "screenSizeY/2", "x" : "screenOriginX" });
-var thirdHorizontalTopRight = horizontalThreeQuarter.dup({ "height" : "screenSizeY/2", "x" : "screenOriginX+(screenSizeX*1/3)" });
+var thirdHorizontalTopRight = horizontalTwoThird.dup({ "height" : "screenSizeY/2", "x" : "screenOriginX+(screenSizeX*1/3)" });
 var thirdHorizontalBotLeft = thirdHorizontalTopLeft.dup({ "y" : "screenOriginY+screenSizeY/2" });
 var thirdHorizontalBotRight = thirdHorizontalTopRight.dup({ "y" : "screenOriginY+screenSizeY/2" });
 

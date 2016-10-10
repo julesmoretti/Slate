@@ -76,6 +76,15 @@ var quarterHorizontalTopRight = horizontalThreeQuarter.dup({ "height" : "screenS
 var quarterHorizontalBotLeft = quarterHorizontalTopLeft.dup({ "y" : "screenOriginY+screenSizeY/2" });
 var quarterHorizontalBotRight = quarterHorizontalTopRight.dup({ "y" : "screenOriginY+screenSizeY/2" });
 
+var quarterHorizontalTopLeftTwo = horizontalQuarter.dup({ "height" : "screenSizeY/2", "x" : "screenOriginX+screenSizeX/4" });
+var quarterHorizontalTopLeftThree = horizontalQuarter.dup({ "height" : "screenSizeY/2", "x" : "screenOriginX+screenSizeX/4+screenSizeX/4" });
+var quarterHorizontalTopLeftFour = horizontalQuarter.dup({ "height" : "screenSizeY/2", "x" : "screenOriginX+screenSizeX/4+screenSizeX/4+screenSizeX/4" });
+
+var quarterHorizontalBotLeftTwo = quarterHorizontalTopLeft.dup({ "y" : "screenOriginY+screenSizeY/2", "x" : "screenOriginX+screenSizeX/4" });
+var quarterHorizontalBotLeftThree = quarterHorizontalTopLeft.dup({ "y" : "screenOriginY+screenSizeY/2", "x" : "screenOriginX+screenSizeX/4+screenSizeX/4" });
+var quarterHorizontalBotLeftFour = quarterHorizontalTopLeft.dup({ "y" : "screenOriginY+screenSizeY/2", "x" : "screenOriginX+screenSizeX/4+screenSizeX/4+screenSizeX/4" });
+
+
 var quarterLeft = halfLeft.dup({});
 var quarterRight = quarterLeft.dup({ "x" : "screenOriginX+(screenSizeX*1/2)" });
 
@@ -119,6 +128,16 @@ S.bnda({
 	"i:ctrl;alt;cmd" : quarterHorizontalBotRight,
 	"b:ctrl;alt;cmd" : quarterHorizontalLeft,
 	"n:ctrl;alt;cmd" : quarterHorizontalRight,
+
+	"1:ctrl;alt;cmd" : quarterHorizontalTopLeft,
+	"2:ctrl;alt;cmd" : quarterHorizontalTopLeftTwo,
+	"3:ctrl;alt;cmd" : quarterHorizontalTopLeftThree,
+	"4:ctrl;alt;cmd" : quarterHorizontalTopLeftFour,
+
+	"q:ctrl;alt;cmd" : quarterHorizontalBotLeft,
+	"w:ctrl;alt;cmd" : quarterHorizontalBotLeftTwo,
+	"e:ctrl;alt;cmd" : quarterHorizontalBotLeftThree,
+	"r:ctrl;alt;cmd" : quarterHorizontalBotLeftFour,
 
 	"right:ctrl;alt;cmd" : S.op("push", { "direction" : "right", "style" : "bar-resize:screenSizeX/2" }),
 	"left:ctrl;alt;cmd" : S.op("push", { "direction" : "left", "style" : "bar-resize:screenSizeX/2" }),
